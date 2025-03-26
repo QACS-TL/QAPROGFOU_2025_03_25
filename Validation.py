@@ -1,23 +1,16 @@
-def validate_age():
-    age_as_string = input("Please enter your age")
-    age = -1
+def get_and_validate_number(upperlimit, lowerlimit = 0):
+    number_as_string = input("Please enter the number")
+    number = -1
     valid_flag = False
     while valid_flag == False:
-        while not age_as_string.isnumeric():
-            print(f"Invalid age: must be numeric")
-            age_as_string = input("Please enter your age")
-        age = int(age_as_string)
-        if age >= 0 and age <= 120:
+        while not number_as_string.isnumeric():
+            print(f"Invalid number: must be numeric")
+            number_as_string = input("Please enter the number")
+        number = int(number_as_string)
+        if number >= lowerlimit and number <= upperlimit:
             valid_flag = True
         else:
-            age_as_string = "X"
+            number_as_string = "X"
 
-    return age
+    return number
 
-name = input("Please enter your name")
-
-age = validate_age()
-
-# It's your birthday!!
-age += 1
-print(f"Hello {name} you are now {age} years old!")
